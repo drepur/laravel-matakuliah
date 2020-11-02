@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use \App\Http\Controllers\MatakuliahController;
+use \App\Http\Controllers\MahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +16,26 @@ use \App\Http\Controllers\MatakuliahController;
 */
 
 /*Route::get('/', function () {
-    return view('matakuliah');
-})->name('matakuliah.index');*/
+    return view('mahasiswa');
+})->name('mahasiswa.index');*/
 
+Route::get('/', [MahasiswaController::class,'index'])
+    ->name('mahasiswa.index');
+
+Route::get('/mahasiswa/hapus/{id}', [MahasiswaController::class,'hapus'])
+    ->name('mahasiswa.hapus');
+
+Route::get('/mahasiswa/tampil/{id}', [MahasiswaController::class,'tampil'])
+    ->name('mahasiswa.tampil');
+
+Route::post('/mahasiswa/simpan/',[MahasiswaController::class,'simpan'])
+    ->name('mahasiswa.simpan');
+
+Route::post('/mahasiswa/rubah/{id}', [MahasiswaController::class,'update'])
+    ->name('mahasiswa.update');
+
+
+/*
 Route::get('/', [MatakuliahController::class,'index'])
     ->name('matakuliah.index');
 
@@ -32,4 +49,4 @@ Route::post('/matakuliah/simpan/',[MatakuliahController::class,'simpan'])
     ->name('matakuliah.simpan');
 
 Route::post('/matakuliah/rubah/{id}', [MatakuliahController::class,'update'])
-    ->name('matakuliah.update');
+    ->name('matakuliah.update');*/
